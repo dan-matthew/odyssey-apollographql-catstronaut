@@ -27,7 +27,7 @@ const TrackDetail = ({ track }) => {
     length,
     modulesCount,
     modules,
-    numberOfViews,
+    nosOfViews,
   } = track;
 
   return (
@@ -42,7 +42,7 @@ const TrackDetail = ({ track }) => {
             <h4>Track details</h4>
             <IconAndLabel>
               <IconView width="16px" />
-              <div id="viewCount">{numberOfViews} view(s)</div>
+              <div id="viewCount">{nosOfViews} view(s)</div>
             </IconAndLabel>
             <IconAndLabel>
               <IconBook width="14px" height="14px" />

@@ -7,6 +7,7 @@ const typeDefs = gql`
 	"""
 	type Query {
 		tracksForHomePage: [Track!]!
+		track(id: ID!): Track
 	}
 
 	"""
@@ -25,6 +26,24 @@ const typeDefs = gql`
 		length: Int
 		"Total number of modules in the track"
 		modulesCount: Int
+		"The track's description. This can be in MD format"
+		description: String
+		"No of times a track is viewed"
+		nosOfViews: Int
+		"The modules in each track"
+		modules: [Module!]!
+	}
+
+	"""
+	A module is a single unit of teaching
+	Multiple modules makes a track.
+	"""
+	type Module {
+		id: ID!
+		"The module's title"
+		title: String!
+		"The module's length in mins"
+		length: Int
 	}
 
 	"""
