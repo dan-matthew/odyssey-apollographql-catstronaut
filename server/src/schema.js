@@ -1,13 +1,40 @@
 const { gql } = require('apollo-server');
 
 const typeDefs = gql`
+	
 	"""
-	Query to get the list of tracks
-	for the home page.
+	List of all read operations
+	available in this graphQL
 	"""
 	type Query {
+		"Query to get the list of tracks for the home page."
 		tracksForHomePage: [Track!]!
+		"Query to return a track for the details page."
 		track(id: ID!): Track
+	}
+
+	"""
+	List of all write operations
+	available in this graphQL
+	"""
+	type Mutation {
+		incrementTrackViews(id: ID!): IncrementTrackViewsResponse!
+	}
+
+	"""
+	We could have just returned the updated Track as a response
+	to the incrementTrackView mutation. But, we create a custom 
+	type to return more info
+	"""
+	type IncrementTrackViewsResponse {
+		"Similar to HTTP response code. Rep the status of the mutation"
+		code: Int!
+		"Indicates if the mutation was successful"
+		success: Boolean!
+		"Human readable message for the UI"
+		message: String!
+		"Newly updated track"
+		track: Track
 	}
 
 	"""
