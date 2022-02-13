@@ -11,6 +11,8 @@ const typeDefs = gql`
 		tracksForHomePage: [Track!]!
 		"Query to return a track for the details page."
 		track(id: ID!): Track
+		"Query a particular module"
+		module(id: ID!): Module!
 	}
 
 	"""
@@ -71,6 +73,10 @@ const typeDefs = gql`
 		title: String!
 		"The module's length in mins"
 		length: Int
+		"Link to the module's video"
+		videoUrl: String!
+		"The module's text based content, can be in markdown format."
+		content: String!
 	}
 
 	"""
